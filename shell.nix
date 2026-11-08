@@ -1,6 +1,6 @@
 { pkgs ? import <nixpkgs> {} }:
 
-  pkgs.mkShellNoCC {
+  pkgs.mkShell {
     packages = with pkgs; [
       gcc
       cmake
@@ -27,6 +27,8 @@
     shellHook = ''
     gcc --version
     cd src
+    make clean
+    make
     tree
     '';    
 }
